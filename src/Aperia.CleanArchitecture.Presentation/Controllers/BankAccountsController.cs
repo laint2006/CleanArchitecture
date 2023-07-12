@@ -47,14 +47,14 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
         /// <summary>
         /// Deposits asynchronous.
         /// </summary>
-        /// <param name="accountId">The account identifier.</param>
+        /// <param name="id">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{accountId}/deposit")]
-        public async Task<IActionResult> DepositAsync(Guid accountId, DepositRequest request)
+        [Route("{id}/deposit")]
+        public async Task<IActionResult> DepositAsync(Guid id, DepositRequest request)
         {
-            var command = new DepositCommand(accountId, request.Amount, request.Reference);
+            var command = new DepositCommand(id, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
             return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
@@ -63,14 +63,14 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
         /// <summary>
         /// Withdraws asynchronous.
         /// </summary>
-        /// <param name="accountId">The account identifier.</param>
+        /// <param name="id">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{accountId}/withdraw")]
-        public async Task<IActionResult> WithdrawAsync(Guid accountId, WithdrawRequest request)
+        [Route("{id}/withdraw")]
+        public async Task<IActionResult> WithdrawAsync(Guid id, WithdrawRequest request)
         {
-            var command = new WithdrawCommand(accountId, request.Amount, request.Reference);
+            var command = new WithdrawCommand(id, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
             return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
@@ -79,14 +79,14 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
         /// <summary>
         /// Transfers asynchronous.
         /// </summary>
-        /// <param name="accountId">The account identifier.</param>
+        /// <param name="id">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{accountId}/transfer")]
-        public async Task<IActionResult> TransferAsync(Guid accountId, TransferRequest request)
+        [Route("{id}/transfer")]
+        public async Task<IActionResult> TransferAsync(Guid id, TransferRequest request)
         {
-            var command = new TransferCommand(accountId, request.ToAccountId, request.Amount, request.Reference);
+            var command = new TransferCommand(id, request.ToAccountId, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
             return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);

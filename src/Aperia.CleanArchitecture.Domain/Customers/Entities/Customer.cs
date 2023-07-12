@@ -70,10 +70,11 @@ public class Customer : Entity<Guid>, IAuditableEntity
     /// <returns></returns>
     public ErrorOr<BankAccount> AddBankAccount(BankAccountType accountType, string currency)
     {
+        const int accountLimited = 2;
         var count = BankAccounts.Count(x=>x.AccountType == accountType && currency.Equals(x.Currency, StringComparison.OrdinalIgnoreCase));
-        if (count >= 2)
+        if (count >= accountLimited)
         {
-            return Error.Failure("BankAccount.LimitedIsReached", $"Number of account [{accountType} - {currency}] is reached");
+            return Error.Failure("BankAccount.AccountLimitedIsReached", $"The number of account type {accountType} - {currency} is reached to {accountLimited}");
         }
 
         var bankAccount = BankAccount.Create(Id, accountType, currency, 0M);

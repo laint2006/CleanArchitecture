@@ -1,12 +1,12 @@
 @host=https://localhost:7061
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYmNkMDgwZi0wNjU2LTQxYWMtYTY5NS0xNDgzMGQyYWVhYmQiLCJnaXZlbl9uYW1lIjoibGFpLm5ndXllbiIsImp0aSI6IjhmZjA3ZWJhLTkyNzEtNGU4ZS05NTAwLWEzOGQ2MzUwNWM1NiIsImV4cCI6MTY4OTEzNzgzNywiaXNzIjoiQXBlcmlhIiwiYXVkIjoiQXBlcmlhIn0.zhRHKlqBJWLaS46sRlmd-LWY3g5KAyC8pnyWdltvmwU
-@accountId=3fa85f64-5717-4562-b3fc-2c963f66afa6
+@accountId=82db48c6-9889-4a03-8153-4334a948d9ca
 
-POST {{host}}/bank-accounts/{accountId}/withdraw
+PUT {{host}}/bank-accounts/{{accountId}}/withdraw
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "amount": 1000,
+  "amount": 2000,
   "reference": "ReceiptNo: xxxx"
 }

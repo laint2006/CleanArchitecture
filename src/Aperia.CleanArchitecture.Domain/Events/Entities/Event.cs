@@ -75,7 +75,8 @@ namespace Aperia.CleanArchitecture.Domain.Events.Entities
             var payloadAsJson = payload is null ? null : JsonSerializer.Serialize(payload, new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.IgnoreCycles,
-                WriteIndented = false
+                WriteIndented = false,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
             });
 
             return new Event(eventType, payloadAsJson)

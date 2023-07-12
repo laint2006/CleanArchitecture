@@ -2,6 +2,6 @@
 @customerId=https://localhost:7061
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYmNkMDgwZi0wNjU2LTQxYWMtYTY5NS0xNDgzMGQyYWVhYmQiLCJnaXZlbl9uYW1lIjoibGFpLm5ndXllbiIsImp0aSI6IjhmZjA3ZWJhLTkyNzEtNGU4ZS05NTAwLWEzOGQ2MzUwNWM1NiIsImV4cCI6MTY4OTEzNzgzNywiaXNzIjoiQXBlcmlhIiwiYXVkIjoiQXBlcmlhIn0.zhRHKlqBJWLaS46sRlmd-LWY3g5KAyC8pnyWdltvmwU
 
-GET {{host}}/customer/{{customerId}}
+GET {{host}}/customers/{{customerId}}
 Content-Type: application/json
 Authorization: Bearer {{token}}
