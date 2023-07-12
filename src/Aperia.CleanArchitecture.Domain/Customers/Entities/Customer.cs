@@ -1,5 +1,5 @@
 ﻿using Aperia.CleanArchitecture.Domain.BankAccounts.Entities;
-using Aperia.CleanArchitecture.Domain.Common;
+using Aperia.CleanArchitecture.Domain.Primitives;
 using ErrorOr;
 
 namespace Aperia.CleanArchitecture.Domain.Customers.Entities;
@@ -7,8 +7,8 @@ namespace Aperia.CleanArchitecture.Domain.Customers.Entities;
 /// <summary>
 /// The Customer
 /// </summary>
-/// <seealso cref="Aperia.CleanArchitecture.Domain.Common.Entity{Guid}" />
-/// <seealso cref="Aperia.CleanArchitecture.Domain.Common.IAuditableEntity" />
+/// <seealso cref="Entity{Guid}" />
+/// <seealso cref="IAuditableEntity" />
 public class Customer : Entity<Guid>, IAuditableEntity
 {
     /// <summary>

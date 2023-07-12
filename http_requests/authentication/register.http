@@ -4,6 +4,6 @@ POST {{host}}/authentication/register
 Content-Type: application/json
 
 {
-    "email": "lai.nguye5n6q@aperia.com",
+    "email": "lai.nguyen@aperia.com",
     "password": "Pwd12345"
 }

@@ -1,13 +1,13 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
+﻿using Aperia.CleanArchitecture.Domain.Primitives;
 
 namespace Aperia.CleanArchitecture.Domain.Users.Entities
 {
     /// <summary>
     /// The User
     /// </summary>
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.Entity{Guid}" />
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.IAuditableEntity" />
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.ISoftDeleteEntity" />
+    /// <seealso cref="Entity{Guid}" />
+    /// <seealso cref="IAuditableEntity" />
+    /// <seealso cref="ISoftDeleteEntity" />
     public class User : Entity<Guid>, IAuditableEntity, ISoftDeleteEntity
     {
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿using Aperia.CleanArchitecture.Application.Repositories;
 using Aperia.CleanArchitecture.Application.Services;
-using Aperia.CleanArchitecture.Domain.Common;
+using Aperia.CleanArchitecture.Domain.Primitives;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aperia.CleanArchitecture.Persistence

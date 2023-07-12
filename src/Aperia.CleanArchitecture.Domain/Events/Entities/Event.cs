@@ -1,4 +1,4 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
+﻿using Aperia.CleanArchitecture.Domain.Primitives;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -7,8 +7,8 @@ namespace Aperia.CleanArchitecture.Domain.Events.Entities
     /// <summary>
     /// The Event
     /// </summary>
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.Entity{Int64}" />
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.IAuditableEntity" />
+    /// <seealso cref="Entity{Int64}" />
+    /// <seealso cref="IAuditableEntity" />
     public class Event : Entity<long>, IAuditableEntity
     {
         /// <summary>

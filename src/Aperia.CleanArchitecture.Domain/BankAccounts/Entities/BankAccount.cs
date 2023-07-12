@@ -1,5 +1,5 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
-using Aperia.CleanArchitecture.Domain.Customers.Entities;
+﻿using Aperia.CleanArchitecture.Domain.Customers.Entities;
+using Aperia.CleanArchitecture.Domain.Primitives;
 using ErrorOr;
 
 namespace Aperia.CleanArchitecture.Domain.BankAccounts.Entities;
@@ -7,8 +7,8 @@ namespace Aperia.CleanArchitecture.Domain.BankAccounts.Entities;
 /// <summary>
 /// The Bank Account
 /// </summary>
-/// <seealso cref="Aperia.CleanArchitecture.Domain.Common.Entity{Guid}" />
-/// <seealso cref="Aperia.CleanArchitecture.Domain.Common.IAuditableEntity" />
+/// <seealso cref="Entity{Guid}" />
+/// <seealso cref="IAuditableEntity" />
 public class BankAccount : Entity<Guid>, IAuditableEntity
 {
     /// <summary>
@@ -24,7 +24,7 @@ public class BankAccount : Entity<Guid>, IAuditableEntity
     /// <summary>
     /// Gets or sets the currency.
     /// </summary>
-    public string Currency { get; set; } = null!;
+    public string Currency { get; set; }
 
     /// <summary>
     /// Gets or sets the balance.

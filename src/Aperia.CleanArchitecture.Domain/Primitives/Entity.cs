@@ -1,4 +1,4 @@
-﻿namespace Aperia.CleanArchitecture.Domain.Common
+﻿namespace Aperia.CleanArchitecture.Domain.Primitives
 {
     /// <summary>
     /// The Entity
@@ -43,6 +43,7 @@
         }
 
         #endregion
+
         #region Operators
 
         /// <summary>

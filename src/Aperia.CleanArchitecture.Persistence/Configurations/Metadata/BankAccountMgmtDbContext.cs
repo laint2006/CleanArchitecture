@@ -1,10 +1,10 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
+﻿using Aperia.CleanArchitecture.Domain.Primitives;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aperia.CleanArchitecture.Persistence
 {
     /// <summary>
-    /// The Bank System Database Context
+    /// The Bank Account Management Database Context
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
     /// <seealso cref="Aperia.CleanArchitecture.Application.Repositories.IBankAccountMgmtDbContext" />

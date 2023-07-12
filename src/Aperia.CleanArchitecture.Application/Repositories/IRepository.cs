@@ -1,4 +1,4 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
+﻿using Aperia.CleanArchitecture.Domain.Primitives;
 
 namespace Aperia.CleanArchitecture.Application.Repositories
 {

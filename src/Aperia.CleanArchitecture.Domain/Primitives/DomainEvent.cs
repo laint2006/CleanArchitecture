@@ -1,9 +1,9 @@
-﻿namespace Aperia.CleanArchitecture.Domain.Common
+﻿namespace Aperia.CleanArchitecture.Domain.Primitives
 {
     /// <summary>
     /// The Domain Event
     /// </summary>
-    /// <seealso cref="Aperia.CleanArchitecture.Domain.Common.IDomainEvent" />
+    /// <seealso cref="IDomainEvent" />
     public class DomainEvent : IDomainEvent
     {
         /// <summary>

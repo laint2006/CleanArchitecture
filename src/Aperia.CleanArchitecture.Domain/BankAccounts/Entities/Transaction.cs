@@ -1,11 +1,11 @@
-﻿using Aperia.CleanArchitecture.Domain.Common;
+﻿using Aperia.CleanArchitecture.Domain.Primitives;
 
 namespace Aperia.CleanArchitecture.Domain.BankAccounts.Entities;
 
 /// <summary>
 /// The Transaction
 /// </summary>
-/// <seealso cref="Aperia.CleanArchitecture.Domain.Common.Entity{Guid}" />
+/// <seealso cref="Entity{Guid}" />
 public class Transaction : Entity<Guid>
 {
     /// <summary>

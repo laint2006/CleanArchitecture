@@ -1,4 +1,4 @@
-﻿namespace Aperia.CleanArchitecture.Domain.Common
+﻿namespace Aperia.CleanArchitecture.Domain.Primitives
 {
     /// <summary>
     /// The ISoftDeleteEntity interface
