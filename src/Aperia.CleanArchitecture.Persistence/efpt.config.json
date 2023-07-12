@@ -1,0 +1,48 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "CleanArchitectureContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Aperia.CleanArchitecture.Persistence",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[BankAccount]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Customer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Transaction]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "KENDU.CleanArchitecture",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": true,
+   "UseManyToManyEntity": true,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": true,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

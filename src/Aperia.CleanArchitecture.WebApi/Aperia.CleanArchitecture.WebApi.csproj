@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Application\Aperia.CleanArchitecture.Application.csproj" />
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Contracts\Aperia.CleanArchitecture.Contracts.csproj" />
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Domain\Aperia.CleanArchitecture.Domain.csproj" />
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Infrastructure\Aperia.CleanArchitecture.Infrastructure.csproj" />
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Persistence\Aperia.CleanArchitecture.Persistence.csproj" />
+    <ProjectReference Include="..\Aperia.CleanArchitecture.Presentation\Aperia.CleanArchitecture.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>
