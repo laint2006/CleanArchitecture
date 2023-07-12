@@ -15,7 +15,7 @@ namespace Aperia.CleanArchitecture.Persistence.Repositories
         /// Initializes a new instance of the <see cref="UserRepository"/> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
-        public UserRepository(BankSystemDbContext dbContext) 
+        public UserRepository(BankAccountMgmtDbContext dbContext) 
             : base(dbContext)
         {
         }

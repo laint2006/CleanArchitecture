@@ -1,8 +1,8 @@
 using Aperia.CleanArchitecture.Application.Repositories;
-using Aperia.CleanArchitecture.Domain.BankAccounts.Entities;
 using Aperia.CleanArchitecture.Domain.Errors;
 using ErrorOr;
 using MediatR;
+using BankAccount = Aperia.CleanArchitecture.Domain.BankAccounts.Entities.BankAccount;
 
 namespace Aperia.CleanArchitecture.Application.BankAccounts.Commands.Transfer;
 
@@ -10,7 +10,7 @@ namespace Aperia.CleanArchitecture.Application.BankAccounts.Commands.Transfer;
 /// The Transfer Command Handler
 /// </summary>
 /// <seealso cref="MediatR.IRequestHandler{CreateBankAccountCommand, ErrorOrBankAccount}" />
-public class TransferCommandHandler : IRequestHandler<TransferCommand, ErrorOr<Transaction[]>>
+public class TransferCommandHandler : IRequestHandler<TransferCommand, ErrorOr<BankAccount>>
 {
     /// <summary>
     /// The unit of work
@@ -41,7 +41,7 @@ public class TransferCommandHandler : IRequestHandler<TransferCommand, ErrorOr<T
     /// <returns>
     /// Response from the request
     /// </returns>
-    public async Task<ErrorOr<Transaction[]>> Handle(TransferCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<BankAccount>> Handle(TransferCommand request, CancellationToken cancellationToken)
     {
         var fromBankAccount = await this._bankAccountRepository.GetByIdAsync(request.FromAccountId);
         if (fromBankAccount is null)
@@ -76,9 +76,7 @@ public class TransferCommandHandler : IRequestHandler<TransferCommand, ErrorOr<T
         this._bankAccountRepository.Update(fromBankAccount);
         await this._unitOfWork.SaveChangesAsync(cancellationToken);
 
-        var transactions = new[] { depositTransaction.Value, withdrawTransaction.Value };
-
-        return transactions;
+        return fromBankAccount;
     }
 
 }

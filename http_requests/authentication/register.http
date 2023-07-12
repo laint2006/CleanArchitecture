@@ -1,0 +1,9 @@
+@host=https://localhost:7061
+
+POST {{host}}/authentication/register
+Content-Type: application/json
+
+{
+    "email": "lai.nguye5n6q@aperia.com",
+    "password": "Pwd12345"
+}

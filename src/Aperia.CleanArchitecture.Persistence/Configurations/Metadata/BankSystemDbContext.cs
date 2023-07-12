@@ -7,8 +7,8 @@ namespace Aperia.CleanArchitecture.Persistence
     /// The Bank System Database Context
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    /// <seealso cref="Aperia.CleanArchitecture.Application.Repositories.IBankSystemDbContext" />
-    public partial class BankSystemDbContext
+    /// <seealso cref="Aperia.CleanArchitecture.Application.Repositories.IBankAccountMgmtDbContext" />
+    public partial class BankAccountMgmtDbContext
     {
         /// <summary>
         /// Called when [model creating partial].
@@ -16,7 +16,7 @@ namespace Aperia.CleanArchitecture.Persistence
         /// <param name="modelBuilder">The model builder.</param>
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<List<IDomainEvent>>().ApplyConfigurationsFromAssembly(typeof(BankSystemDbContext).Assembly);
+            modelBuilder.Ignore<List<IDomainEvent>>().ApplyConfigurationsFromAssembly(typeof(BankAccountMgmtDbContext).Assembly);
         }
     }
 }

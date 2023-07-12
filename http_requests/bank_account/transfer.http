@@ -1,0 +1,13 @@
+@host=https://localhost:7061
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYmNkMDgwZi0wNjU2LTQxYWMtYTY5NS0xNDgzMGQyYWVhYmQiLCJnaXZlbl9uYW1lIjoibGFpLm5ndXllbiIsImp0aSI6IjhmZjA3ZWJhLTkyNzEtNGU4ZS05NTAwLWEzOGQ2MzUwNWM1NiIsImV4cCI6MTY4OTEzNzgzNywiaXNzIjoiQXBlcmlhIiwiYXVkIjoiQXBlcmlhIn0.zhRHKlqBJWLaS46sRlmd-LWY3g5KAyC8pnyWdltvmwU
+@accountId=3fa85f64-5717-4562-b3fc-2c963f66afa6
+
+POST {{host}}/bank-accounts/{accountId}/transfer
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "toAccountId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "amount": 1000,
+  "reference": "ReceiptNo: xxxx"
+}

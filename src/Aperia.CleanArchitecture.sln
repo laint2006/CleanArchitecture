@@ -15,7 +15,28 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aperia.CleanArchitecture.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aperia.CleanArchitecture.Persistence", "Aperia.CleanArchitecture.Persistence\Aperia.CleanArchitecture.Persistence.csproj", "{0B9ED892-0AEF-4ACC-A3B1-C2E34590113D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aperia.CleanArchitecture.Presentation", "Aperia.CleanArchitecture.Presentation\Aperia.CleanArchitecture.Presentation.csproj", "{34D5092E-DB61-45C7-9C15-780243A6C476}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aperia.CleanArchitecture.Presentation", "Aperia.CleanArchitecture.Presentation\Aperia.CleanArchitecture.Presentation.csproj", "{34D5092E-DB61-45C7-9C15-780243A6C476}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "http_requests", "http_requests", "{C9D95616-AB77-4436-B0A7-A4B1D6A37CA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "authentication", "authentication", "{0945AEAB-C995-43D6-B25C-5BD31017E18E}"
+	ProjectSection(SolutionItems) = preProject
+		..\http_requests\authentication\login.http = ..\http_requests\authentication\login.http
+		..\http_requests\authentication\register.http = ..\http_requests\authentication\register.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bank_account", "bank_account", "{F7DE8030-8733-41A5-8576-CE2627781859}"
+	ProjectSection(SolutionItems) = preProject
+		..\http_requests\bank_account\create.http = ..\http_requests\bank_account\create.http
+		..\http_requests\bank_account\deposit.http = ..\http_requests\bank_account\deposit.http
+		..\http_requests\bank_account\transfer.http = ..\http_requests\bank_account\transfer.http
+		..\http_requests\bank_account\withdraw.http = ..\http_requests\bank_account\withdraw.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "customer", "customer", "{772119E5-2EB9-4D4B-9C8B-8B76623AAFA4}"
+	ProjectSection(SolutionItems) = preProject
+		..\http_requests\customer\get_details.http = ..\http_requests\customer\get_details.http
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +75,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0945AEAB-C995-43D6-B25C-5BD31017E18E} = {C9D95616-AB77-4436-B0A7-A4B1D6A37CA9}
+		{F7DE8030-8733-41A5-8576-CE2627781859} = {C9D95616-AB77-4436-B0A7-A4B1D6A37CA9}
+		{772119E5-2EB9-4D4B-9C8B-8B76623AAFA4} = {C9D95616-AB77-4436-B0A7-A4B1D6A37CA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD64F1F2-A0F2-4DF6-A7F6-E74D6B778FF7}

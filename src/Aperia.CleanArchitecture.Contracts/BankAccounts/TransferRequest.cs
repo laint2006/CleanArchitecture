@@ -1,11 +1,6 @@
-﻿namespace Aperia.CleanArchitecture.Contracts.BankAccounts
-{
-    public class TransferRequest : Request
-    {
-        public Guid ToAccountId { get; set; }
-        public Guid FromAccountId { get; set; }
-        public decimal Amount { get; set; }
+﻿namespace Aperia.CleanArchitecture.Contracts.BankAccounts;
 
-        public string? Reference { get; set; }
-    }
-}
+/// <summary>
+/// The Transfer Request
+/// </summary>
+public record TransferRequest(Guid ToAccountId, decimal Amount, string? Reference);

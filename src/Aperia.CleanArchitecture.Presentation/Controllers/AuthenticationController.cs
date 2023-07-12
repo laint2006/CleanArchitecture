@@ -1,4 +1,5 @@
 ﻿using Aperia.CleanArchitecture.Application.Authentication.Commands.Register;
+using Aperia.CleanArchitecture.Application.Authentication.Common;
 using Aperia.CleanArchitecture.Application.Authentication.Queries.Login;
 using Aperia.CleanArchitecture.Contracts.Authentication;
 using Aperia.CleanArchitecture.Domain.Errors;
@@ -41,7 +42,7 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
             var command = new RegisterCommand(request.Email, request.Password);
             var authenticationResult = await _mediator.Send(command);
 
-            return authenticationResult.Match(result => Ok(new AuthenticationResponse(result.User.Id, result.User.Email, result.Token)), Problem);
+            return authenticationResult.Match(result => Ok(CreateAuthenticationResponse(result)), Problem);
         }
 
         /// <summary>
@@ -60,7 +61,17 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
                 return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authenticationResult.FirstError.Description);
             }
 
-            return authenticationResult.Match(result => Ok(new AuthenticationResponse(result.User.Id, result.User.Email, result.Token)), Problem);
+            return authenticationResult.Match(result => Ok(CreateAuthenticationResponse(result)), Problem);
+        }
+
+        /// <summary>
+        /// Creates the authentication response.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <returns></returns>
+        private static AuthenticationResponse CreateAuthenticationResponse(AuthenticationResult result)
+        {
+            return new AuthenticationResponse(result.User.Id, result.User.Email, result.Token);
         }
 
     }

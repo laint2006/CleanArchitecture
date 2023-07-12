@@ -52,14 +52,18 @@ public class BankAccount : Entity<Guid>, IAuditableEntity
     public virtual ICollection<Transaction> Transactions { get; } = new List<Transaction>();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="BankAccount"/> class.
+    /// Initializes a new instance of the <see cref="BankAccount" /> class.
     /// </summary>
     /// <param name="customerId">The customer identifier.</param>
+    /// <param name="accountType">Type of the account.</param>
+    /// <param name="currency">The currency.</param>
     /// <param name="balance">The balance.</param>
-    private BankAccount(Guid customerId, decimal balance)
+    private BankAccount(Guid customerId, BankAccountType accountType, string currency, decimal balance)
         : base(Guid.NewGuid())
     {
         this.CustomerId = customerId;
+        this.AccountType = accountType;
+        this.Currency = currency;
         this.Balance = balance;
     }
 
@@ -73,7 +77,7 @@ public class BankAccount : Entity<Guid>, IAuditableEntity
     /// <returns></returns>
     public static BankAccount Create(Guid customerId, BankAccountType accountType, string currency, decimal balance)
     {
-        var customer = new BankAccount(customerId, balance);
+        var customer = new BankAccount(customerId, accountType, currency, balance);
         customer.AddDomainEvent(DomainEvent.Create("BankAccount.Created", customer));
 
         return customer;

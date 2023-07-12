@@ -19,11 +19,11 @@ namespace Aperia.CleanArchitecture.Persistence
         /// <returns></returns>
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<BankSystemDbContext>(options =>
+            services.AddDbContext<BankAccountMgmtDbContext>(options =>
             {
                 options.UseSqlServer(configuration["ConnectionString"]);
             })
-            .AddScoped<IBankSystemDbContext>(sp => sp.GetRequiredService<BankSystemDbContext>())
+            .AddScoped<IBankAccountMgmtDbContext>(sp => sp.GetRequiredService<BankAccountMgmtDbContext>())
             .AddScoped<IUnitOfWork, UnitOfWork>()
             .AddScoped<ICustomerRepository, CustomerRepository>()
             .AddScoped<IBankAccountRepository, BankAccountRepository>()

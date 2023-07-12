@@ -1,0 +1,13 @@
+@host=https://localhost:7061
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYmNkMDgwZi0wNjU2LTQxYWMtYTY5NS0xNDgzMGQyYWVhYmQiLCJnaXZlbl9uYW1lIjoibGFpLm5ndXllbiIsImp0aSI6IjhmZjA3ZWJhLTkyNzEtNGU4ZS05NTAwLWEzOGQ2MzUwNWM1NiIsImV4cCI6MTY4OTEzNzgzNywiaXNzIjoiQXBlcmlhIiwiYXVkIjoiQXBlcmlhIn0.zhRHKlqBJWLaS46sRlmd-LWY3g5KAyC8pnyWdltvmwU
+
+POST {{host}}/bank-accounts
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "customerName": "Lai Nguyen",
+  "phoneNumber": "0932xxxxxxx",
+  "accountType": 1,
+  "currency": "VND"
+}

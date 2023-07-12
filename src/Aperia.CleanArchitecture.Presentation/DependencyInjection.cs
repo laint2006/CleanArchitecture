@@ -1,4 +1,5 @@
-﻿using Aperia.CleanArchitecture.Presentation.Middlewares;
+﻿using System.Text.Json.Serialization;
+using Aperia.CleanArchitecture.Presentation.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,10 @@ namespace Aperia.CleanArchitecture.Presentation
         public static IServiceCollection AddPresentation(this IServiceCollection services)
         {
             services.AddControllers()
+                    .AddJsonOptions(options =>
+                    {
+                        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                    })
                     .AddApplicationPart(typeof(DependencyInjection).Assembly);
 
             services.AddSingleton<ProblemDetailsFactory, ApplicationProblemDetailsFactory>();

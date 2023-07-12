@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 namespace Aperia.CleanArchitecture.Application.Repositories
 {
     /// <summary>
-    /// The IBankSystemDbContext interface
+    /// The BankAccountMgmtContext interface
     /// </summary>
-    public interface IBankSystemDbContext
+    public interface IBankAccountMgmtDbContext
     {
         /// <summary>
         /// Gets or sets the customers.

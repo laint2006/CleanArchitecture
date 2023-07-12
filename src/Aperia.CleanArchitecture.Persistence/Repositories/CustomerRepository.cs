@@ -15,7 +15,7 @@ namespace Aperia.CleanArchitecture.Persistence.Repositories
         /// Initializes a new instance of the <see cref="CustomerRepository"/> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
-        public CustomerRepository(BankSystemDbContext dbContext)
+        public CustomerRepository(BankAccountMgmtDbContext dbContext)
             : base(dbContext)
         {
         }
@@ -28,7 +28,9 @@ namespace Aperia.CleanArchitecture.Persistence.Repositories
         /// <returns></returns>
         public async Task<Customer?> GetByNameAsync(string name, string phoneNumber)
         {
-            return await this.GetQueryable().FirstOrDefaultAsync(x => x.Name == name && x.PhoneNumber == phoneNumber);
+            return await this.GetQueryable()
+                .Include(x=>x.BankAccounts)
+                .FirstOrDefaultAsync(x => x.Name == name && x.PhoneNumber == phoneNumber);
         }
     }
 }

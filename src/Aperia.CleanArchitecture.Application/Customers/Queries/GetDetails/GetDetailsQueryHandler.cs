@@ -13,31 +13,17 @@ namespace Aperia.CleanArchitecture.Application.Customers.Queries.GetDetails;
 public class GetDetailsQueryHandler : IRequestHandler<GetDetailsCommand, ErrorOr<Customer>>
 {
     /// <summary>
-    /// The unit of work
-    /// </summary>
-    private readonly IUnitOfWork _unitOfWork;
-
-    /// <summary>
     /// The customer repository
     /// </summary>
     private readonly ICustomerRepository _customerRepository;
 
     /// <summary>
-    /// The bank account repository
-    /// </summary>
-    private readonly IBankAccountRepository _bankAccountRepository;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="GetDetailsQueryHandler" /> class.
     /// </summary>
-    /// <param name="unitOfWork">The unit of work.</param>
     /// <param name="customerRepository">The customer repository.</param>
-    /// <param name="bankAccountRepository">The bank account repository.</param>
-    public GetDetailsQueryHandler(IUnitOfWork unitOfWork, ICustomerRepository customerRepository, IBankAccountRepository bankAccountRepository)
+    public GetDetailsQueryHandler(ICustomerRepository customerRepository)
     {
-        this._unitOfWork = unitOfWork;
         this._customerRepository = customerRepository;
-        this._bankAccountRepository = bankAccountRepository;
     }
 
     /// <summary>

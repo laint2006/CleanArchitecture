@@ -1,5 +1,6 @@
 ﻿using Aperia.CleanArchitecture.Domain.Common;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Aperia.CleanArchitecture.Domain.Events.Entities
 {
@@ -71,7 +72,11 @@ namespace Aperia.CleanArchitecture.Domain.Events.Entities
         /// <returns></returns>
         public static Event Create(string eventType, object? payload, bool dispatched = false)
         {
-            var payloadAsJson = payload is null ? null : JsonSerializer.Serialize(payload);
+            var payloadAsJson = payload is null ? null : JsonSerializer.Serialize(payload, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.IgnoreCycles,
+                WriteIndented = false
+            });
 
             return new Event(eventType, payloadAsJson)
             {

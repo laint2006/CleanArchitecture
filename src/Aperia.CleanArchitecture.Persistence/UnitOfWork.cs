@@ -14,7 +14,7 @@ namespace Aperia.CleanArchitecture.Persistence
         /// <summary>
         /// The database context
         /// </summary>
-        private readonly BankSystemDbContext _dbContext;
+        private readonly BankAccountMgmtDbContext _dbContext;
 
         /// <summary>
         /// The date time provider
@@ -26,7 +26,7 @@ namespace Aperia.CleanArchitecture.Persistence
         /// </summary>
         /// <param name="dbContext">The database context.</param>
         /// <param name="dateTimeProvider">The date time provider.</param>
-        public UnitOfWork(BankSystemDbContext dbContext, IDateTimeProvider dateTimeProvider)
+        public UnitOfWork(BankAccountMgmtDbContext dbContext, IDateTimeProvider dateTimeProvider)
         {
             this._dbContext = dbContext;
             this._dateTimeProvider = dateTimeProvider;

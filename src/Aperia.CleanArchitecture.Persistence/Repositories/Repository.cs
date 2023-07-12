@@ -16,7 +16,7 @@ namespace Aperia.CleanArchitecture.Persistence.Repositories
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
-        protected Repository(BankSystemDbContext dbContext)
+        protected Repository(BankAccountMgmtDbContext dbContext)
             : base(dbContext)
         {
         }
@@ -35,13 +35,13 @@ namespace Aperia.CleanArchitecture.Persistence.Repositories
         /// <summary>
         /// The database context
         /// </summary>
-        protected BankSystemDbContext DbContext { get; init; }
+        protected BankAccountMgmtDbContext DbContext { get; init; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity, TId}"/> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
-        protected Repository(BankSystemDbContext dbContext)
+        protected Repository(BankAccountMgmtDbContext dbContext)
         {
             this.DbContext = dbContext;
         }

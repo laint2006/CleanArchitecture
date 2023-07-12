@@ -1,6 +1,6 @@
 ﻿namespace Aperia.CleanArchitecture.Contracts.BankAccounts;
 
 /// <summary>
-/// The Deposit Request
+/// The Withdraw Request
 /// </summary>
-public record DepositRequest(decimal Amount, string? Reference);
+public record WithdrawRequest(decimal Amount, string? Reference);

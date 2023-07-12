@@ -5,6 +5,7 @@ using Aperia.CleanArchitecture.Application.BankAccounts.Commands.Withdraw;
 using Aperia.CleanArchitecture.Contracts.BankAccounts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using BankAccount = Aperia.CleanArchitecture.Domain.BankAccounts.Entities.BankAccount;
 
 namespace Aperia.CleanArchitecture.Presentation.Controllers
 {
@@ -40,61 +41,65 @@ namespace Aperia.CleanArchitecture.Presentation.Controllers
             var command = new CreateBankAccountCommand(request.CustomerName, request.PhoneNumber, request.AccountType, request.Currency);
             var result = await this._mediator.Send(command);
 
-            return result.Match(bankAccount => Ok(new CreateBankAccountResponse
-            {
-                BankAccountId = bankAccount.Id
-            }), Problem);
+            return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
         }
 
         /// <summary>
         /// Deposits asynchronous.
         /// </summary>
+        /// <param name="accountId">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
-        [HttpPost("deposit")]
-        public async Task<IActionResult> DepositAsync(DepositRequest request)
+        [HttpPut]
+        [Route("{accountId}/deposit")]
+        public async Task<IActionResult> DepositAsync(Guid accountId, DepositRequest request)
         {
-            var command = new DepositCommand(request.AccountId, request.Amount, request.Reference);
+            var command = new DepositCommand(accountId, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
-            return result.Match(bankAccount => Ok(new CreateBankAccountResponse
-            {
-                BankAccountId = bankAccount.Id
-            }), Problem);
+            return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
         }
 
         /// <summary>
         /// Withdraws asynchronous.
         /// </summary>
+        /// <param name="accountId">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
-        [HttpPost("withdraw")]
-        public async Task<IActionResult> WithdrawAsync(DepositRequest request)
+        [HttpPut]
+        [Route("{accountId}/withdraw")]
+        public async Task<IActionResult> WithdrawAsync(Guid accountId, WithdrawRequest request)
         {
-            var command = new WithdrawCommand(request.AccountId, request.Amount, request.Reference);
+            var command = new WithdrawCommand(accountId, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
-            return result.Match(bankAccount => Ok(new CreateBankAccountResponse
-            {
-                BankAccountId = bankAccount.Id
-            }), Problem);
+            return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
         }
 
         /// <summary>
         /// Transfers asynchronous.
         /// </summary>
+        /// <param name="accountId">The account identifier.</param>
         /// <param name="request">The request.</param>
         /// <returns></returns>
-        [HttpPost("transfer")]
-        public async Task<IActionResult> TransferAsync(TransferRequest request)
+        [HttpPut]
+        [Route("{accountId}/transfer")]
+        public async Task<IActionResult> TransferAsync(Guid accountId, TransferRequest request)
         {
-            var command = new TransferCommand(request.FromAccountId, request.ToAccountId, request.Amount, request.Reference);
+            var command = new TransferCommand(accountId, request.ToAccountId, request.Amount, request.Reference);
             var result = await this._mediator.Send(command);
 
-            return result.Match(bankAccount => Ok(new CreateBankAccountResponse
-            {
-               // BankAccountId = bankAccount.Length
-            }), Problem);
+            return result.Match(bankAccount => Ok(CreateBankAccountResponse(bankAccount)), Problem);
+        }
+
+        /// <summary>
+        /// Creates the bank account response.
+        /// </summary>
+        /// <param name="bankAccount">The bank account.</param>
+        /// <returns></returns>
+        private static BankAccountResponse CreateBankAccountResponse(BankAccount bankAccount)
+        {
+            return new BankAccountResponse(bankAccount.Id, bankAccount.CustomerId, bankAccount.AccountType, bankAccount.Currency, bankAccount.Balance);
         }
 
     }
