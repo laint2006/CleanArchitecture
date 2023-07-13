@@ -8,6 +8,6 @@ Authorization: Bearer {{token}}
 {
   "customerName": "Lai Nguyen",
   "phoneNumber": "0932xxxxxxx",
-  "accountType": 1,
+  "accountType": "SavingsAccount",
   "currency": "VND"
 }

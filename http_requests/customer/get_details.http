@@ -1,6 +1,6 @@
 @host=https://localhost:7061
-@customerId=https://localhost:7061
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxYmNkMDgwZi0wNjU2LTQxYWMtYTY5NS0xNDgzMGQyYWVhYmQiLCJnaXZlbl9uYW1lIjoibGFpLm5ndXllbiIsImp0aSI6IjhmZjA3ZWJhLTkyNzEtNGU4ZS05NTAwLWEzOGQ2MzUwNWM1NiIsImV4cCI6MTY4OTEzNzgzNywiaXNzIjoiQXBlcmlhIiwiYXVkIjoiQXBlcmlhIn0.zhRHKlqBJWLaS46sRlmd-LWY3g5KAyC8pnyWdltvmwU
+@customerId=dd8189a6-e3d4-4d20-aa2a-717a37d46ee2
 
 GET {{host}}/customers/{{customerId}}
 Content-Type: application/json

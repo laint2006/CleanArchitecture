@@ -22,6 +22,7 @@ namespace Aperia.CleanArchitecture.Presentation
                     .AddJsonOptions(options =>
                     {
                         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                     })
                     .AddApplicationPart(typeof(DependencyInjection).Assembly);
 
